@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-card',
@@ -6,9 +7,6 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-
-  @Input() name: string = '';
-  @Input() price: number | string = 0.00;
   
   @Input() model: Product = new Product();
 
@@ -16,11 +14,5 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   
-}
-
-class Product {
-  name: string = 'markin';
-  price: number | string = 1.23;
 }

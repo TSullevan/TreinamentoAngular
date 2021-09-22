@@ -1,3 +1,10 @@
-<app-card [model]="product1"></app-card>
-<app-card [model]="product2"></app-card>
-<app-card></app-card>
+<button (click)="openCaioButton('Sextou!')">Caio</button>
+
+<app-card *ngFor="let product of productList" [model]="product"></app-card>
+
+<div *ngFor="let product of productList">
+    <app-card *ngIf="product.price < 1000" [model]="product"></app-card>
+</div>
+
+
+<!-- *ngIf="product.price < 1000" -->

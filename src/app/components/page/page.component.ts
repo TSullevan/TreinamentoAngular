@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-page',
@@ -6,22 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page.component.css']
 })
 export class PageComponent implements OnInit {
+  public productList: Array<Product>  = new Array<Product>();
 
-  public product1 = new Product()
-  public product2 = new Product()
+  // public productList1: Product[]  = [];
   
   constructor() { 
-    this.product2.name = 'Rakin Sadara';
-    this.product2.price = 1.99;
+    this.productList.push(new Product().asGlasses());
+    this.productList.push(new Product().asShoes());
+    this.productList.push(new Product().asIphone13());
   }
 
   ngOnInit(): void {
   }
 
+  public openCaioButton(text: string): void {
+    alert(text + ' Botão do Caio Aberto!');
+  }
 }
-
-class Product {
-  name: string = 'ParkinPadara';
-  price: number | string = 9.99;
-}
-
