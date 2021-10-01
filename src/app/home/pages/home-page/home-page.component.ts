@@ -10,10 +10,16 @@ export class HomePageComponent implements OnInit {
 
   public inputName: InputModel = new InputModel().asName().asRequired();
 
+  public internalValue: string = '';
+
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  public showInternalValue() {
+    alert(this.internalValue);
   }
 
 }

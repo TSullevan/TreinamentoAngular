@@ -15,4 +15,11 @@ export class InputComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public blurValidation() : void {
+    this.model = this.model.removeBorderValidation();
+    if(!this.model.blurValidation()) {
+      this.model = this.model.putBorderValidation();
+    }
+  }
+
 }

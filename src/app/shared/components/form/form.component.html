@@ -1,0 +1,8 @@
+<div class="form-group">
+    <div *ngFor="let row of model.rows" class="row">
+        <div *ngFor="let col of row.cols" [class]="col.class">
+            <app-input [model]="col.input"></app-input>
+        </div>
+    </div>
+</div>
+<button class="btn btn-primary" (click)="send()">Enviar</button>

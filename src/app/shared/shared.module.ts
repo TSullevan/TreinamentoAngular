@@ -6,6 +6,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MasterPageComponent } from './pages/master-page/master-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { InputComponent } from './components/input/input.component';
+import { FormComponent } from './components/form/form.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,15 +15,18 @@ import { InputComponent } from './components/input/input.component';
     NavbarComponent,
     MasterPageComponent,
     NotFoundPageComponent,
-    InputComponent
+    InputComponent,
+    FormComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     SharedRoutingModule
   ],
   exports: [
     NavbarComponent,
-    InputComponent
+    InputComponent,
+    FormComponent
   ]
 })
 export class SharedModule { }
