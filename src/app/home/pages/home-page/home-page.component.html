@@ -4,7 +4,35 @@
 Input comum
 <input [(ngModel)]="internalValue">
 <p>
-    {{internalValue}}
+    {{ internalValue | abbreviate | uppercase }}
 </p>
 
 <button (click)="showInternalValue()">Mostrar Valor</button>
+
+<button (click)="deleteItem()">Delete</button>
+<button (click)="fetchValue()">Get</button>
+<button (click)="updateValue()">Update</button>
+<button (click)="create()">Create</button>
+<button (click)="clearUser()">Clear User</button>
+
+<p>{{user.name}}</p>
+<p>{{user.cpf}}</p>
+<p>{{user.telephone1}}</p>
+<p>{{user.telephone2}}</p>
+
+<button (click)="listItems()">List</button>
+<button (click)="clearList()">Clear List</button>
+<div *ngFor="let user of userList">
+    <p>{{user.name}}</p>
+    <p>{{user.cpf}}</p>
+    <p>{{user.telephone1}}</p>
+    <p>{{user.telephone2}}</p>
+</div>
+
+<select class="form-control col-3" [(ngModel)]="selectedComboItem">
+    <option placeHolder="Selecione" [ngValue]="null" selected>Selecione</option>
+    <option *ngFor="let combo of comboList" [ngValue]="combo">{{combo.text}}</option>
+</select>
+<p>{{selectedComboItem.id}}<p>
+<p>{{selectedComboItem.text}}<p>
+<button (click)="showComboItem()">Mostrar Item Selecionado</button>

@@ -20,7 +20,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ContactModule,
     NgbModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
