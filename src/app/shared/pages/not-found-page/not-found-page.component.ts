@@ -14,7 +14,7 @@ export class NotFoundPageComponent implements OnInit {
   }
 
   back() {
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('/home');
   }
 
 }

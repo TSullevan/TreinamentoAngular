@@ -16,6 +16,12 @@ export class InputModel {
     mask: Function = this.maskWithMethod;
     maskMethod: Function = this.maskService.noMask;
     maxLength: number = 0;
+    type: string = 'text';
+
+    public setValue(value: string): InputModel {
+        this.value = value;
+        return this;
+    }
 
     public blurValidationWithMethod() {
         return this.blurValidationMethod(this.value);
@@ -36,6 +42,14 @@ export class InputModel {
         this.title = 'Nome';
         this.placeHolder = 'Digite seu nome';
         this.propertyName = 'Name';
+        return this;
+    }
+
+    public asPassword(): InputModel {
+        this.title = 'Senha';
+        this.placeHolder = 'Digite sua Senha';
+        this.propertyName = 'Password';
+        this.type = 'password';
         return this;
     }
 

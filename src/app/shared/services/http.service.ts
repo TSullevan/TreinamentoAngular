@@ -15,6 +15,10 @@ export class HttpService {
     return this.httpClient.post<Model>(environment.baseApiUrl + route, model);
   }
 
+  public getAuthTest<Model>(route: string): Observable<Model> {
+    return this.httpClient.get<Model>(environment.baseApiUrl + route);
+  }
+
   public get<Model>(route: string, id: number): Observable<Model> {
     return this.httpClient.get<Model>(environment.baseApiUrl + route + '/' + id);
   }

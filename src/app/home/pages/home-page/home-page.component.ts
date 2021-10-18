@@ -24,6 +24,10 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  public SendHomeRequest(route: string) {
+    this.httpService.getAuthTest<string>('home/' + route).subscribe();
+  }
+
   public showInternalValue() {
     alert(this.internalValue);
   }

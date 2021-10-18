@@ -1,4 +1,4 @@
 <p>{{model.title}}<span *ngIf="model.required" class="required-mark">*</span></p>
 <input [placeholder]="model.placeHolder" class="form-control" (blur)="blurValidation();" [(ngModel)]="model.value"
-    [style]="model.style" (keyup)="model.mask();" [maxlength]="model.maxLength">
+    [style]="model.style" (keyup)="model.mask();" [maxlength]="model.maxLength" [type]="model.type">
     

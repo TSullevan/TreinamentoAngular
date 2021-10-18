@@ -14,7 +14,7 @@ export class ContactFormComponent implements OnInit {
   public form: FormModel = new FormModel();
 
   constructor() {
-    this.form
+    this.form.setSendRoute('user')
       .addRow(new RowModel()
         .addCol(new ColModel(new InputModel().asName().asRequired()))
         .addCol(new ColModel(new InputModel().asTelephone()).setColSize(3)))

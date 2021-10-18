@@ -19,11 +19,11 @@ export class FormComponent implements OnInit {
   }
 
   public send(): void {
-    debugger
     let fieldsOk: boolean = this.validateFields();
     if (fieldsOk) {
        let formData: object = this.model.getFormDataObject();
-      this.httpService.send('user', formData).subscribe();
+       this.model.sendMethod(formData).subscribe();
+      // this.httpService.send(this.model.sendRoute, formData).subscribe();
       return;
     }
     alert('Alguns campos não foram preenchidos adequadamente.');

@@ -1,4 +1,8 @@
-<p>home-page works!</p>
+<button (click)="SendHomeRequest('anonymous')">Anonymous Route</button>
+<button (click)="SendHomeRequest('authenticated')">Authenticated Route</button>
+<button (click)="SendHomeRequest('employee')">Employee Route</button>
+<button (click)="SendHomeRequest('manager')">Manager Route</button>
+
 <app-input [model]="inputName"></app-input>
 
 Input comum

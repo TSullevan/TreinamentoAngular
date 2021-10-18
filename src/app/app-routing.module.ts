@@ -1,22 +1,34 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, Router, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/guards/auth.guard';
+import { AuthPageComponent } from './auth/pages/auth-page/auth-page.component';
 import { ContactPageComponent } from './contact/pages/contact-page/contact-page.component';
 import { HomePageComponent } from './home/pages/home-page/home-page.component';
+import { EmployeeGuard } from './shared/guards/employee.guard';
+import { ManagerGuard } from './shared/guards/manager.guard';
 import { MasterPageComponent } from './shared/pages/master-page/master-page.component';
 import { NotFoundPageComponent } from './shared/pages/not-found-page/not-found-page.component';
 
 const desktopRoutes: Routes = [
   {
+    path: 'login',
+    component: AuthPageComponent
+  },
+  {
     path: '',
     component: MasterPageComponent,
+    // canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
     children: [
       {
-        path: '',
-        component: HomePageComponent
+        path: 'home',
+        component: HomePageComponent,
+        canActivate: [EmployeeGuard]
       },
       {
         path: 'contato',
-        component: ContactPageComponent
+        component: ContactPageComponent,
+        canActivate: [ManagerGuard]
       }
     ]
   },
@@ -34,12 +46,7 @@ const defaultRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot([...desktopRoutes, ...defaultRoutes],
-    {
-      scrollPositionRestoration: 'disabled',
-      preloadingStrategy: PreloadAllModules
-    }
-  )],
+  imports: [RouterModule.forRoot([...desktopRoutes, ...defaultRoutes])],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
