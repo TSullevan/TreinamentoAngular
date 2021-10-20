@@ -55,7 +55,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
           this.authService.addTokenToCache(response);
           // this.authService.addTokenToCache(response.headers.get('Jwt-Token'));
           // this.authService.addUserToCache(response.body);
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/deposito');
           this.showLoading = false;
         },
         (error: HttpErrorResponse) => {
